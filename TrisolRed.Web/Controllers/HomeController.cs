@@ -9,20 +9,24 @@ using TrisolRed.Web.Models;
 using System.IO;
 using System.Threading.Tasks;
 using MailKit.Security;
+using TrisoleRed.Services.Interfaces;
 
 namespace TrisolRed.Web.Controllers
 {
     public class HomeController : Controller
     {
         private readonly EmailConfigurationJson _mailSettings;
-        public HomeController(IOptions<EmailConfigurationJson> mailSettings)
-        {
-            this._mailSettings = mailSettings.Value;
+        private readonly IProperties _properties;
+        public HomeController(IOptions<EmailConfigurationJson> mailSettings,IProperties properties)
+        {    
+            _mailSettings = mailSettings.Value;
+            _properties = properties;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<ProblemDetails> model = new List<ProblemDetails>();
+            return View(model);
         }
         //public async Task<IActionResult> ContactUs(EmailBody model)
         //{

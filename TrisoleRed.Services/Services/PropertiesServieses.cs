@@ -18,7 +18,19 @@ namespace TrisoleRed.Services.Services
         }
         public List<PropertiesDetailsModelView> GetAllProperties()
         {
-            throw new NotImplementedException();
+            //PropertiesDetailsModelView model;
+            List<PropertiesDetailsModelView> model = _context.PropertiesDetails.Select(x=>new PropertiesDetailsModelView()
+            {
+                Name = x.Name,
+                area = x.area,
+                Configurations = x.Configurations,
+                Address = x.Address,
+                image = x.image,
+                StartingPrice = x.StartingPrice,
+                ReraNumber = x.ReraNumber,
+                Type = x.Type
+            }).ToList();
+            return model;
         }
     }
 }
