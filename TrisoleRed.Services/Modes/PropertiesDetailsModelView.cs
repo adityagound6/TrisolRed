@@ -4,6 +4,7 @@ namespace TrisoleRed.Services.Modes
 {
     public class PropertiesDetailsModelView
     {
+        public int PropertiesId { get; set; }
         public string Type { get; set; }
         public string Address { get; set; }
         public double area { get; set; }

@@ -57,10 +57,54 @@ namespace TrisoleRed.Services.Services
                 imageString = x.Image,
                 StartingPrice = x.StartingPrice,
                 ReraNumber = x.ReraNumber,
-                Type = x.Type
+                Type = x.Type,
+                PropertiesId = x.PropertiesId
             }).ToList();
             return model;
         }
+
+        public PropertiesDetailsModelView GetById(int id)
+        {
+            PropertiesDetailsModelView model;
+            model = _context.PropertiesDetails.Where(x => x.PropertiesId == id).Select(x=>new PropertiesDetailsModelView()
+            {
+                Configurations = x.Configurations,
+                Address = x.Address,
+                StartingPrice = x.StartingPrice,
+                area = x.Area,
+                imageString=x.Image,
+                ReraNumber = x.ReraNumber,
+                Type = x.Type,
+            }).FirstOrDefault();
+            if (model != null)
+            {
+                return model;
+            }
+            else
+            {
+                return model;
+            }
+        }
+
+        public bool Update(PropertiesDetailsModelView modelView)
+        {
+            try
+            {
+                PropertiesDetails model = _context.PropertiesDetails.Where(x => x.PropertiesId == modelView.PropertiesId).FirstOrDefault();
+                if (model != null)
+                {
+                    _context.PropertiesDetails.Update(model);
+                    _context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         [Obsolete]
         private string ProcessUploadFile(IFormFile model)
         {

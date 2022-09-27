@@ -1,0 +1,79 @@
+﻿@model PropertiesDetailsModelView;
+
+@{
+    ViewBag.PageTitle = "Update";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var Ephotos = "~/Image/" + (Model.imageString ?? "no_photo.jpg");
+}
+<div class="row justify-content-center m-3">
+    <div class="col-sm-2">
+        <form enctype="multipart/form-data" asp-action="Update" asp-controller="Account" method="post">
+            <div class="form-group">
+                <input asp-for="PropertiesId" hidden />
+                <input asp-for="imageString" hidden />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name">property Name</label>
+                <input asp-for="Name" value="@Model.Name" class="form-control" placeholder="Enter Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="StartingPrice">StartingPrice</label>
+                <input asp-for="StartingPrice" value="@Model.StartingPrice" class="form-control" placeholder="StartingPrice">
+                <span asp-validation-for="StartingPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="Address">Address</label>
+                <input asp-for="Address" value="@Model.Address" class="form-control" placeholder="Address">
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="area">area</label>
+                <input asp-for="area" value="@Model.area" class="form-control" placeholder="area">
+                <span asp-validation-for="area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Configurations">Configurations</label>
+                <input asp-for="Configurations" value="@Model.Configurations" class="form-control" placeholder="Configurations">
+                <span asp-validation-for="Configurations" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type">Type</label>
+                <input asp-for="Type" value="@Model.Type" class="form-control" placeholder="Type">
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Type">Select Department</label>
+                <select class="form-control form-control-lg" asp-for="Department" asp-items="Html.GetEnumSelectList<Dept>()">
+                    <option value="">please select</option>
+                </select>
+                <span class="text-danger" asp-validation-for="Department"></span>
+            </div>*@
+            <img class="card-img-top" src="@Ephotos" alt=""
+                 asp-append-version="true">
+            <br />
+            <div>
+                <button class="btn btn-danger" onclick="DeleteConfirmaton(@Model.PropertiesId)">Delete</button>
+                <br />
+            </div>
+            <div class="form-group">
+                <div class="custom-file">
+                    <label asp-for="image">Chose file..</label>
+                    <input asp-for="image" class="form-control ">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+</div>
+<script>
+    function DeleteConfirmaton(id) {
+        let text;
+        if (confirm("Are You sure to delete!") == true) {
+            
+            location.replace("https://localhost:44361/Account/DeletePhoto/" + id)
+        }
+    }
+</script>

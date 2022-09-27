@@ -104,7 +104,26 @@ namespace TrisolRed.Web.Controllers
             _notyf.Error("Server Error");
             return View(model);
         }
-
-        
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            var model = _properties.GetById(id);
+            if (model != null)
+            {
+                return View(model);
+            }
+            _notyf.Error("server error");
+            return RedirectToAction(nameof(ListProperty));
+        }
+        [HttpPost]
+        public IActionResult Update(PropertiesDetailsModelView model)
+        {
+            if (_properties.Update(model))
+            {
+                _notyf.Success("Update Success");
+                return RedirectToAction(nameof(ListProperty));
+            }
+            return View(model);
+        }
     }
 }

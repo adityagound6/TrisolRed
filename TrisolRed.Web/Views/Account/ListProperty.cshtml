@@ -25,8 +25,8 @@
                                     <td>@properties.Address</td>
                                     <td>@properties.Configurations</td>
                                     <td>
-                                        <a class="btn btn-warning" asp-controller="Home" asp-action="Details" asp-route-Id="@properties.Name">View</a>
-                                        <a href="@Url.ActionLink("Update","Home",new { id = properties.Address})" class="btn btn-primary">Update</a>
+                                        <a class="btn btn-warning" asp-controller="Account" asp-action="Details" asp-route-Id="@properties.Name">View</a>
+                                        <a href="@Url.ActionLink("Update","Account",new { id = properties.PropertiesId})" class="btn btn-primary">Update</a>
                                         <button class="btn btn-danger"  onclick="confirmationDelete(@properties.Configurations);">Delete</button>
                                     </td>
                                 </tr>

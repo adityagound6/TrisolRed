@@ -6,5 +6,7 @@ namespace TrisoleRed.Services.Interfaces
     {
         List<PropertiesDetailsModelView> GetAllProperties();
         bool AddPropty(PropertiesDetailsModelView model);
+        bool Update(PropertiesDetailsModelView model);
+        PropertiesDetailsModelView GetById(int id);
     }
 }
