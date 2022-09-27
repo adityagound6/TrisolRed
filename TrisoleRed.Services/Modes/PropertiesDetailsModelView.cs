@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
 
 namespace TrisoleRed.Services.Modes
 {
@@ -15,7 +11,8 @@ namespace TrisoleRed.Services.Modes
         public string Configurations { get; set; }
         public double StartingPrice { get; set; }
         public string ReraNumber { get; set; }
-        public string image { get; set; }
-        public List<string> images { get; set; }
+        public IFormFile image { get; set; }
+        public string? imageString { get; set; }
+        public List<string> images { get; set; } = null;
     }
 }

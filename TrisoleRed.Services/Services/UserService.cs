@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,7 @@ namespace TrisoleRed.Services.Services
     public class UserService : IUserInterface
     {
         private readonly PropertiesContext _context;
+        
         public UserService(PropertiesContext context)
         {
             _context = context;
@@ -45,5 +48,6 @@ namespace TrisoleRed.Services.Services
             }
             return false;
         }
+        
     }
 }

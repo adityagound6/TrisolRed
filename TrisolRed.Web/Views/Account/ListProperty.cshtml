@@ -1,0 +1,49 @@
+﻿@model List<PropertiesDetailsModelView>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row justify-content-center m-3">
+    <a class="btn btn-warning" asp-controller="Account" asp-action="AddProperty">Add Properties</a>
+    <div class="">
+        <table class="table table-dark ">
+            <thead>
+                <tr>
+                    <th scope="col">Properties Name</th>
+                    <th scope="col">Starting Price</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Configurtion of Properties</th>
+                    <th scope="col" class="justify-content-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var properties in Model)
+                    {
+                                <tr>
+                                    <th scope="row">@properties.Name</th>
+                                    <td>@properties.StartingPrice</td>
+                                    <td>@properties.Address</td>
+                                    <td>@properties.Configurations</td>
+                                    <td>
+                                        <a class="btn btn-warning" asp-controller="Home" asp-action="Details" asp-route-Id="@properties.Name">View</a>
+                                        <a href="@Url.ActionLink("Update","Home",new { id = properties.Address})" class="btn btn-primary">Update</a>
+                                        <button class="btn btn-danger"  onclick="confirmationDelete(@properties.Configurations);">Delete</button>
+                                    </td>
+                                </tr>
+
+                    }
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<script>
+    function confirmationDelete(id) {
+        let text;
+        if (confirm("Are You sure to delete!") == true) {
+            location.replace("https://localhost:44361/Home/Delete/" + id)
+        }
+    }
+</script>

@@ -1,0 +1,63 @@
+﻿@model PropertiesDetailsModelView
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row justify-content-center m-3">
+    <div class="col-sm-2">
+        <form enctype="multipart/form-data" asp-action="AddProperty" asp-controller="Account" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name">Property name</label>
+                <input asp-for="Name" class="form-control" placeholder="Email">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="StartingPrice">Starting Price</label>
+                <input asp-for="StartingPrice" class="form-control" placeholder="City">
+                <span asp-validation-for="StartingPrice" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address">Address</label>
+                <input asp-for="Address" class="form-control" placeholder="Address">
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="area">Area</label>
+                <input asp-for="area" class="form-control" placeholder="Confirm Password">
+                <span asp-validation-for="area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Configurations">Configurations</label>
+                <input asp-for="Configurations" class="form-control" placeholder="Configurations">
+                <span asp-validation-for="Configurations" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReraNumber">Rera Number</label>
+                <input asp-for="ReraNumber" class="form-control" placeholder="ReraNumber">
+                <span asp-validation-for="ReraNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type">Type</label>
+                <input asp-for="Type" class="form-control" placeholder="ReraNumber">
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="custom-file">
+                    <label asp-for="image">Chose file..</label>
+                    <input multiple asp-for="image" type="file" class="form-control ">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-file">
+                    <label asp-for="images">Chose file..</label>
+                    <input multiple asp-for="images" type="file" class="form-control ">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Create new Property</button>
+            <br />
+            <br />
+        </form>
+    </div>
+</div>

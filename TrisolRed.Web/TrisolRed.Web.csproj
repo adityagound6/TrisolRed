@@ -26,4 +26,8 @@
     <ProjectReference Include="..\TrisoleRed.Services\TrisoleRed.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Image\" />
+  </ItemGroup>
+
 </Project>

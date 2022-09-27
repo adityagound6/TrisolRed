@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using TrisoleRed.Services.Interfaces;
 using TrisoleRed.Services.Modes;
+using TrisolRed.Web.Helper;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace TrisolRed.Web.Controllers
 {
@@ -9,10 +11,13 @@ namespace TrisolRed.Web.Controllers
     {
         private readonly IUserInterface _user;
         private readonly INotyfService _notyf;
-        public AccountController(IUserInterface user,INotyfService notyf)
+        private readonly IProperties _properties;
+        [Obsolete]
+        public AccountController(IUserInterface user,INotyfService notyf, IProperties properties)
         {
             _user = user;
             _notyf = notyf;
+            _properties = properties;
         }
         [HttpGet]
         public IActionResult Login()
@@ -72,5 +77,34 @@ namespace TrisolRed.Web.Controllers
                 return View(model);
             }
         }
+        public IActionResult ListProperty()
+        {
+            var model = _properties.GetAllProperties();
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult AddProperty()
+        {
+            return View();
+        }
+        [HttpPost]
+        [Obsolete]
+        public IActionResult AddProperty(PropertiesDetailsModelView model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_properties.AddPropty(model))
+                {
+                    _notyf.Success("Create success");
+                    return RedirectToAction(nameof(ListProperty));
+                }
+                _notyf.Error("Server Error");
+                return View(model);
+            }
+            _notyf.Error("Server Error");
+            return View(model);
+        }
+
+        
     }
 }
