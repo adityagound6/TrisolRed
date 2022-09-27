@@ -21,11 +21,11 @@ namespace TrisoleRed.Services.Services
             //PropertiesDetailsModelView model;
             List<PropertiesDetailsModelView> model = _context.PropertiesDetails.Select(x=>new PropertiesDetailsModelView()
             {
-                Name = x.Name,
-                area = x.area,
+                Name = x.PropertiesName,
+                area = x.Area,
                 Configurations = x.Configurations,
                 Address = x.Address,
-                image = x.image,
+                image = x.Image,
                 StartingPrice = x.StartingPrice,
                 ReraNumber = x.ReraNumber,
                 Type = x.Type

@@ -13,12 +13,12 @@ namespace TrisoleRed.Data.Models
         public int PropertiesId { get; set; }
         public string Type { get; set; }
         public string Address { get; set; }
-        public double area { get; set; }
-        public string Name { get; set; }
+        public double Area { get; set; }
+        public string PropertiesName { get; set; }
         public string Configurations { get; set; }
         public double StartingPrice { get; set; }
         public string ReraNumber { get; set; }
-        public string image { get; set; }
-        public string images { get; set; }
+        public string Image { get; set; }
+        public string Images { get; set; }
     }
 }
