@@ -18,6 +18,7 @@ namespace TrisoleRed.Data.Models
         public string Configurations { get; set; }
         public double StartingPrice { get; set; }
         public string ReraNumber { get; set; }
+        public bool Status { get; set; }
         public string Image { get; set; }
         public string Images { get; set; }
     }

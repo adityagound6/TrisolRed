@@ -60,6 +60,9 @@ namespace TrisoleRed.Data.Migrations
                     b.Property<double>("StartingPrice")
                         .HasColumnType("float");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

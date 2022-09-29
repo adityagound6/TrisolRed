@@ -1,0 +1,202 @@
+﻿@model PropertiesDetailsModelView
+@{
+    Layout = "~/Views/Shared/_layoutDetails.cshtml";
+}
+<div class="w-100 float-left">
+    <a name="overview"></a>
+    <div class="container_bg">
+        <div class="container">
+            <div class="projectAddress">
+                <h2 class="text-white">Godrej Woods | Sec-43, Noida</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 hm-overviewText">
+                    <div class="pageHeader1">
+                        <ul class="list-inline pageMenu1">
+                            <li>
+                                <div class="img-icons"><img src="~/images/apartments.png"></div>
+                                <div>
+                                    <strong>Type</strong>
+                                    <span>@Model.Type</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img-icons"><img src="~/images/area.png"></div>
+                                <div>
+                                    <strong>Areas</strong>
+                                    <span>@Model.area Acres</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img-icons"><img src="~/images/property.png"></div>
+                                <div>
+                                    <strong>Configurations</strong>
+                                    <span>@Model.Configurations BHK</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img-icons"><img src="~/images/status.png"></div>
+                                <div>
+                                    <strong>Current Status</strong>
+                                    <span>@Model.StartingPrice</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img-icons"><img src="~/images/approval.png"></div>
+                                <div>
+                                    <strong>Starting Price</strong>
+                                    <span>@Model.StartingPrice Cr*</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img-icons"><img src="~/images/approval.png"></div>
+                                <div>
+                                    <strong>Rera No.</strong>
+                                    <span>@Model.ReraNumber</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="align_buttons">
+
+                    <div class="flatBtn"><a href="#formModal" data-toggle="modal"><strong>Schedule Site Visit</strong></a></div>
+                    <div class="flatBtn"><a href="#formModal" data-toggle="modal"><strong>Price List</strong></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w-100 float-left">
+    <a name="amenities"></a>
+    <div class="w-100 float-left padding amenitiesContainer animate-section2">
+        <div class="videoBox">
+            <video autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" poster="~/images/banner.jpg">
+                <source src="~/videos/banner.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="container">
+            <div class="hm-projectWrapper">
+                <div class="heading mx-auto">
+                    <h2 class="text-white">Amenities</h2>
+                </div>
+                <div class="hm-project-icons w-100  sys-ame">
+                    <ul class="list-inline">
+                        <li>
+                            <section>
+                                <div class="img-fluid"><img src="~/images/icons/yoga.png" class="filter-white" alt="yoga"></div>
+                                <span>Yoga Deck</span>
+                            </section>
+                        </li>
+                        <li>
+                            <section>
+                                <div class="img-fluid"><img src="~/images/icons/jogging.png" class="filter-white" alt="Jogging Track"></div>
+                                <span>Jogging Track</span>
+                            </section>
+                        </li>
+                        <li>
+                            <section>
+                                <div class="img-fluid"><img src="~/images/icons/play-area.png" class="filter-white" alt="Kids Play Area"></div>
+                                <span>Kids Play Area</span>
+                            </section>
+                        </li>
+                        <li>
+                            <section>
+                                <div class="img-fluid"><img src="~/images/icons/swimming-pool.png" class="filter-white" alt="swimming-pool"></div>
+                                <span>Swimming Pool</span>
+                            </section>
+                        </li>
+                        <li>
+                            <section>
+                                <div class="img-fluid"><img src="~/images/icons/tennis.png" class="filter-white" alt="tennis"></div>
+                                <span>Tennis Court</span>
+                            </section>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li>
+                            <section>
+                                <div class="img-fluid"><img src="~/images/icons/gym.png" class="filter-white" alt="Gymnasium"></div>
+                                <span>Gymnasium</span>
+                            </section>
+                        </li>
+                        <li>
+                            <section>
+                                <div class="img-fluid"><img src="~/images/icons/club.png" class="filter-white" alt="Clubhouse"></div>
+                                <span>Clubhouse</span>
+                            </section>
+                        </li>
+                        <li>
+                            <section>
+                                <div class="img-fluid"><img src="~/images/icons/bbq.png" class="filter-white" alt="BBQ Area"></div>
+                                <span>BBQ Area</span>
+                            </section>
+                        </li>
+                        <li>
+                            <section>
+                                <div class="img-fluid"><img src="~/images/icons/garden.png" class="filter-white" alt="Garden"></div>
+                                <span>Garden</span>
+                            </section>
+                        </li>
+                        <li>
+                            <section>
+                                <div class="img-fluid"><img src="~/images/icons/amphitheatre.png" class="filter-white" alt="Amphitheatre"></div>
+                                <span>Amphitheatre</span>
+                            </section>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="w-100 float-left bg-image white padding" style="background-image: url(~/images/lining-bg.jpg);">
+    <div class="container">
+        <div class="heading mx-auto">
+            <h2 class="text-black">Floor Plans</h2>
+        </div>
+        <div class="fpContainer w-100" id="fpContainer1">
+            <div class="row">
+                <div class="col arcBox">
+                    <section>
+                        <div class="img-fluid">
+                            <img src="~/images/icons/apartment.png" alt="3 BHK + UTILITY">
+                        </div>
+                        <article>
+                            <h5>3 BHK + UTILITY</h5>
+                            <p>2563 Square Feet</p>
+                            <div class="flatBtn"><a href="#formModal" data-toggle="modal">View Detail</a></div>
+                        </article>
+                    </section>
+                </div>
+                <div class="col arcBox">
+                    <section>
+                        <div class="img-fluid">
+                            <img src="~/images/icons/apartment.png" alt="4 BHK + UTILITY">
+                        </div>
+                        <article>
+                            <h5>4 BHK + UTILITY</h5>
+                            <p>3360 Square Feet</p>
+                            <div class="flatBtn"><a href="#formModal" data-toggle="modal">View Detail</a></div>
+                        </article>
+                    </section>
+                </div>
+                <div class="col arcBox">
+                    <section>
+                        <div class="img-fluid">
+                            <img src="~/images/icons/apartment.png" alt="5 BHK + UTILITY">
+                        </div>
+                        <article>
+                            <h5>5 BHK + UTILITY</h5>
+                            <p>3754 Square Feet</p>
+                            <div class="flatBtn"><a href="#formModal" data-toggle="modal">View Detail</a></div>
+                        </article>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

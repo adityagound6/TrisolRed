@@ -1,14 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using MimeKit;
 using System.Diagnostics;
-using System.Net.Mail;
-using System.Net.Mime;
 using TrisolRed.Web.Helper;
 using TrisolRed.Web.Models;
-using System.IO;
-using System.Threading.Tasks;
-using MailKit.Security;
 using TrisoleRed.Services.Interfaces;
 
 namespace TrisolRed.Web.Controllers
@@ -25,8 +19,16 @@ namespace TrisolRed.Web.Controllers
 
         public IActionResult Index()
         {
-            List<ProblemDetails> model = new List<ProblemDetails>();
+            //List<ProblemDetails> model = new List<ProblemDetails>();
+            var model = _properties.GetAllProperties();
             return View(model);
+        }
+
+        public IActionResult PropptyDetails(int propertyId)
+        {
+            var property = _properties.GetById(propertyId);
+            return View(property);
+
         }
         //public async Task<IActionResult> ContactUs(EmailBody model)
         //{

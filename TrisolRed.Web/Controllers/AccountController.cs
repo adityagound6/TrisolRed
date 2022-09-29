@@ -1,4 +1,5 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TrisoleRed.Services.Interfaces;
 using TrisoleRed.Services.Modes;
@@ -48,6 +49,7 @@ namespace TrisolRed.Web.Controllers
         {
             return View();
         }
+        [Authorize]
         [HttpPost]
         public IActionResult SignIn(Sign model)
         {
