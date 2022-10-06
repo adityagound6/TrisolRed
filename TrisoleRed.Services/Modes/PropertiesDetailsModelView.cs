@@ -15,5 +15,6 @@ namespace TrisoleRed.Services.Modes
         public IFormFile image { get; set; }
         public string? imageString { get; set; }
         public List<string> images { get; set; } = null;
+        public ContactUsVm ContactUsVm { get; set; } = null;
     }
 }

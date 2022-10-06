@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrisoleRed.Data.Models;
 
@@ -11,9 +12,10 @@ using TrisoleRed.Data.Models;
 namespace TrisoleRed.Data.Migrations
 {
     [DbContext(typeof(PropertiesContext))]
-    partial class PropertiesContextModelSnapshot : ModelSnapshot
+    [Migration("20221006172659_Surya")]
+    partial class Surya
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,35 +23,6 @@ namespace TrisoleRed.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("TrisoleRed.Data.Models.ContactUs", b =>
-                {
-                    b.Property<int>("ContactId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ContactId"), 1L, 1);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ContactId");
-
-                    b.ToTable("ContactUs");
-                });
 
             modelBuilder.Entity("TrisoleRed.Data.Models.PropertiesDetails", b =>
                 {

@@ -21,6 +21,7 @@ var emailConfig = builder.Configuration
 
 builder.Services.AddSingleton(emailConfig);
 builder.Services.AddScoped<IProperties, PropertiesServieses>();
+builder.Services.AddScoped<IContactUs, ContactUsServices>();
 builder.Services.AddScoped<IUserInterface, UserService>();
 builder.Services.AddNotyf(config => { config.DurationInSeconds = 5; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
 var app = builder.Build();

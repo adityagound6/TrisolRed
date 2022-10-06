@@ -4,6 +4,7 @@ using System.Diagnostics;
 using TrisolRed.Web.Helper;
 using TrisolRed.Web.Models;
 using TrisoleRed.Services.Interfaces;
+using TrisoleRed.Services.Modes;
 
 namespace TrisolRed.Web.Controllers
 {
@@ -11,8 +12,10 @@ namespace TrisolRed.Web.Controllers
     {
         private readonly EmailConfigurationJson _mailSettings;
         private readonly IProperties _properties;
-        public HomeController(IOptions<EmailConfigurationJson> mailSettings,IProperties properties)
+        private readonly IContactUs _contact;
+        public HomeController(IOptions<EmailConfigurationJson> mailSettings,IProperties properties,IContactUs contactUs)
         {    
+            _contact = contactUs;
             _mailSettings = mailSettings.Value;
             _properties = properties;
         }
@@ -30,38 +33,46 @@ namespace TrisolRed.Web.Controllers
             return View(property);
 
         }
-        //public async Task<IActionResult> ContactUs(EmailBody model)
-        //{
-        //    var email = new MimeMessage();
-        //    email.Sender = MailboxAddress.Parse(_mailSettings.From);
-        //    email.To.Add(MailboxAddress.Parse(model.ToEmail));
-        //    email.Subject = model.Subject;
-        //    var builder = new BodyBuilder();
-        //    if (model.Attachments != null)
-        //    {
-        //        byte[] fileBytes;
-        //        foreach (var file in model.Attachments)
-        //        {
-        //            if (file.Length > 0)
-        //            {
-        //                using (var ms = new MemoryStream())
-        //                {
-        //                    file.CopyTo(ms);
-        //                    fileBytes = ms.ToArray();
-        //                }
-        //                builder.Attachments.Add(file.FileName, fileBytes, ContentType.Parse(file.ContentType));
-        //            }
-        //        }
-        //    }
-        //    builder.HtmlBody = model.Body;
-        //    email.Body = builder.ToMessageBody();
-        //    using var smtp = new SmtpClient();
-        //    smtp.Connect(_mailSettings.SmtpServer, _mailSettings.Port, SecureSocketOptions.StartTls);
-        //    smtp.Authenticate(_mailSettings.From, _mailSettings.Password);
-        //    await smtp.SendAsync(email);
-        //    smtp.Disconnect(true);
-        //    return RedirectToAction(nameof(Index));
-        //}
+        public async Task<IActionResult> ContactUs(ContactUsVm model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_contact.IsAdd(model))
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            return RedirectToAction(nameof(Index));
+            //var email = new MimeMessage();
+            //email.Sender = MailboxAddress.Parse(_mailSettings.From);
+            //email.To.Add(MailboxAddress.Parse(model.ToEmail));
+            //email.Subject = model.Subject;
+            //var builder = new BodyBuilder();
+            //if (model.Attachments != null)
+            //{
+            //    byte[] fileBytes;
+            //    foreach (var file in model.Attachments)
+            //    {
+            //        if (file.Length > 0)
+            //        {
+            //            using (var ms = new MemoryStream())
+            //            {
+            //                file.CopyTo(ms);
+            //                fileBytes = ms.ToArray();
+            //            }
+            //            builder.Attachments.Add(file.FileName, fileBytes, ContentType.Parse(file.ContentType));
+            //        }
+            //    }
+            //}
+            //builder.HtmlBody = model.Body;
+            //email.Body = builder.ToMessageBody();
+            //using var smtp = new SmtpClient();
+            //smtp.Connect(_mailSettings.SmtpServer, _mailSettings.Port, SecureSocketOptions.StartTls);
+            //smtp.Authenticate(_mailSettings.From, _mailSettings.Password);
+            //await smtp.SendAsync(email);
+            //smtp.Disconnect(true);
+            //return RedirectToAction(nameof(Index));
+        }
 
         public IActionResult Privacy()
         {
