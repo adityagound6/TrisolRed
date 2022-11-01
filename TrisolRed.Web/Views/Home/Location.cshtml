@@ -1,0 +1,32 @@
+﻿@model List<string>
+@{
+    Layout = "~/Views/Shared/_layoutLocation.cshtml";
+}
+<section class="project-list">
+    <div class="container-fluid">
+        <div class="inner-project">
+            <div class="inner-project-list">
+
+
+                @foreach(var city in Model)
+                {
+                    <div class="project-list-item">
+                        <a asp-action="Index" asp-controller="Home" asp-route-city="@city" class="project-link" target="_blank">
+                            <div class="proj_list" style="background-image:url(~/images/location/gurgaon.webp)">
+                                <h2>@city</h2>
+                                <p>Luxury Properties in Gurugram</p>
+                            </div>
+                        </a>
+                    </div>
+                }
+
+                
+                
+
+
+
+
+            </div>
+        </div>
+    </div>
+</section>

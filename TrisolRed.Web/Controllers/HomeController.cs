@@ -20,10 +20,10 @@ namespace TrisolRed.Web.Controllers
             _properties = properties;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string city)
         {
             //List<ProblemDetails> model = new List<ProblemDetails>();
-            var model = _properties.GetAllProperties();
+            var model = _properties.GetByCityName(city);
             return View(model);
         }
 
@@ -32,6 +32,11 @@ namespace TrisolRed.Web.Controllers
             var property = _properties.GetById(propertyId);
             return View(property);
 
+        }
+        public IActionResult Location()
+        {
+            var model = _properties.GetAllCity();
+            return View(model);
         }
         public async Task<IActionResult> ContactUs(ContactUsVm model)
         {

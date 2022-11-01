@@ -18,6 +18,17 @@ namespace TrisoleRed.Services.Services
             _hostingEnvironment = hostingEnvironment;
             this._context = context;    
         }
+        public List<PropertiesDetails> GetByCityName(string city)
+        {
+            var listd = _context.PropertiesDetails.ToList().Where(x => x.City == city).ToList();
+            return listd;
+        }
+
+        public List<string> GetAllCity()
+        {
+            var city = _context.PropertiesDetails.Select(x => x.City).Distinct().ToList();
+            return city;
+        }
 
         public bool AddPropty(PropertiesDetailsModelView model)
         {

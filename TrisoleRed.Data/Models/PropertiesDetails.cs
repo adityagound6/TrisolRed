@@ -21,5 +21,6 @@ namespace TrisoleRed.Data.Models
         public bool Status { get; set; }
         public string Image { get; set; }
         public string Images { get; set; }
+        public string City { get; set; }
     }
 }

@@ -6,6 +6,7 @@ namespace TrisoleRed.Services.Modes
     {
         public int PropertiesId { get; set; }
         public string Type { get; set; }
+        public string City { get; set; }
         public string Address { get; set; }
         public double area { get; set; }
         public string Name { get; set; }

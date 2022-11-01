@@ -1,0 +1,330 @@
+@font-face {
+    font-family: "latobold";
+    src: url("../fonts/lato-bold-webfont.eot");
+    src: url("../fonts/lato-bold-webfont.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/lato-bold-webfont.woff2") format("woff2"),
+        url("../fonts/lato-bold-webfont.woff") format("woff"),
+        url("../fonts/lato-bold-webfont.ttf") format("truetype"),
+        url("../fonts/lato-bold-webfont.svg#latobold") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "latoregular";
+    src: url("../fonts/lato-regular-webfont.eot");
+    src: url("../fonts/lato-regular-webfont.eot?#iefix")
+        format("embedded-opentype"),
+        url("../fonts/lato-regular-webfont.woff2") format("woff2"),
+        url("../fonts/lato-regular-webfont.woff") format("woff"),
+        url("../fonts/lato-regular-webfont.ttf") format("truetype"),
+        url("../fonts/lato-regular-webfont.svg#latoregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "latosemibold";
+    src: url("../fonts/lato-semibold-webfont.eot");
+    src: url("../fonts/lato-semibold-webfont.eot?#iefix")
+        format("embedded-opentype"),
+        url("../fonts/lato-semibold-webfont.woff2") format("woff2"),
+        url("../fonts/lato-semibold-webfont.woff") format("woff"),
+        url("../fonts/lato-semibold-webfont.ttf") format("truetype"),
+        url("../fonts/lato-semibold-webfont.svg#latosemibold") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "latoblack";
+    src: url("../fonts/lato-black-webfont.eot");
+    src: url("../fonts/lato-black-webfont.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/lato-black-webfont.woff2") format("woff2"),
+        url("../fonts/lato-black-webfont.woff") format("woff"),
+        url("../fonts/lato-black-webfont.ttf") format("truetype"),
+        url("../fonts/lato-black-webfont.svg#latoblack") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "latoitalic";
+    src: url("../fonts/lato-italic-webfont.eot");
+    src: url("../fonts/lato-italic-webfont.eot?#iefix")
+        format("embedded-opentype"),
+        url("../fonts/lato-italic-webfont.woff2") format("woff2"),
+        url("../fonts/lato-italic-webfont.woff") format("woff"),
+        url("../fonts/lato-italic-webfont.ttf") format("truetype"),
+        url("../fonts/lato-italic-webfont.svg#latoitalic") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "latoregular";
+    font-size: 16px;
+    background-color: #000;
+    color: #999;
+}
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+.container-fluid {
+    max-width: 100%;
+    padding: 0 15px;
+}
+.inner-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.menu ul {
+    display: flex;
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+}
+.menu ul li {
+    margin-left: 40px;
+}
+.menu ul li a, .menu ul li span { 
+    font-size: 15px;
+    font-family: "latosemibold";
+    color: #fff;
+    text-decoration: none;
+}
+.menu ul li a.active {
+    color: #c08830;
+}
+.menu ul li.mobile-number a {
+    border: 1px solid #464646;
+    color: #fff;
+    padding: 6px 20px;
+    font-family: "latoblack";
+}
+.menu ul li.mobile-number a:hover {
+    border: 1px solid #c08830;
+    color: #fff;
+    background-color: #c08830;
+}
+.menu .submenu {
+    position: absolute;
+    background-color: #fff;
+    display: none;
+    padding: 10px;
+}
+.menu ul li.dropdown:hover .submenu {
+    display: block;
+}
+.menu .submenu li {
+    margin: 0 0 5px 0;
+    width: 100%;
+}
+.menu .submenu li a {
+    color: #000;
+}
+.menu .submenu {
+  position: absolute;
+  background-color: #fff;
+  display: none;
+  padding: 10px;
+  min-width: 160px;
+  z-index: 9; 
+}
+
+.container {     
+  max-width: 1280px;
+}
+
+@media only screen and (max-width: 1320px){
+  .container {     
+      max-width: 1230px; 
+  } 
+}
+
+@media only screen and (max-width: 1199px) {
+    .menu ul li {
+      margin-left: 30px;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .menu .submenu {
+        height: auto;
+        display: block;
+        position: static;
+    }       
+    .button_container {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      height: 29px;
+      width: 35px;
+      cursor: pointer;
+      z-index: 100;
+      transition: opacity 0.25s ease;
+      transform: translateY(-50%);
+    }
+    .button_container:hover {
+      opacity: 0.7;
+    }
+    .button_container.active .top {
+      transform: translateY(11px) translateX(0) rotate(45deg);
+      background: #fff;
+    }
+    .button_container.active .middle {
+      opacity: 0;
+      background: #fff;
+    }
+    .button_container.active .bottom {
+      transform: translateY(-11px) translateX(0) rotate(-45deg);
+      background: #fff;
+    }
+    .button_container span {
+      background: #ce9f47;
+      border: none;
+      height: 5px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all 0.35s ease;
+      cursor: pointer;
+    }
+    .button_container span:nth-of-type(2) {
+      top: 11px;
+    }
+    .button_container span:nth-of-type(3) {
+      top: 22px;
+    }
+    .overlay {
+      position: fixed;
+      background: #ce9f47;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s, visibility 0.35s, height 0.35s;
+      overflow: hidden;
+      z-index: 9;
+    }
+    .overlay.open {
+      opacity: 0.9;
+      visibility: visible;
+      height: 100%;
+    }
+    .overlay.open li {
+      -webkit-animation: fadeInRight 0.5s ease forwards;
+      animation: fadeInRight 0.5s ease forwards;
+      -webkit-animation-delay: 0.35s;
+      animation-delay: 0.35s;
+    }
+    .overlay.open li:nth-of-type(2) {
+      -webkit-animation-delay: 0.4s;
+      animation-delay: 0.4s;
+    }
+    .overlay.open li:nth-of-type(3) {
+      -webkit-animation-delay: 0.45s;
+      animation-delay: 0.45s;
+    }
+    .overlay nav {
+      position: relative;
+      height: 70%;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+    }
+    .overlay ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      display: inline-block;
+      position: relative;
+      height: 100%;
+    }
+    .overlay ul li {
+      display: block;
+      position: relative;
+      opacity: 0;
+      margin: 0 0 15px 0;
+    }
+    .overlay ul li a, .overlay ul li span {
+      display: block;
+      position: relative;
+      color: #fff;
+      text-decoration: none;
+      overflow: hidden;
+      font-size: 30px;
+    }
+    .overlay ul li a:hover:after,
+    .overlay ul li a:focus:after,
+    .overlay ul li a:active:after {
+      width: 100%;
+    }
+    .overlay ul li a:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0%;
+      transform: translateX(-50%);
+      height: 3px;
+      background: #fff;
+      transition: 0.35s;
+    }
+    @-webkit-keyframes fadeInRight {
+      0% {
+        opacity: 0;
+        left: 20%;
+      }
+      100% {
+        opacity: 1;
+        left: 0;
+      }
+    }
+    @keyframes fadeInRight {
+      0% {
+        opacity: 0;
+        left: 20%;
+      }
+      100% {
+        opacity: 1;
+        left: 0;
+      }
+    }
+    .menu {
+      position: relative;
+    }
+    .menu ul li.mobile-number a {
+      border: none;
+      padding: 0;
+    }
+    .menu ul li.mobile-number a:hover {
+      border: 0;
+      background-color: transparent;
+    }
+    .menu ul li a.active {
+      color: #fff;
+    }
+}
+@media only screen and (max-width: 767px) {
+}
+@media only screen and (max-width: 575px) {
+    .overlay ul li a,  .overlay ul li span {
+      font-size: 20px;
+    }
+}
+  
