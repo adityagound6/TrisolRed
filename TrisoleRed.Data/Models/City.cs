@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrisoleRed.Services.Modes
+namespace TrisoleRed.Data.Models
 {
-    public class Citys
+    public class City
     {
         public int CityId { get; set; }
         public string CityName { get; set; }
+        public string CityPhoto { get; set; }
     }
 }

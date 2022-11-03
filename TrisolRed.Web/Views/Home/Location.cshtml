@@ -1,4 +1,4 @@
-﻿@model List<string>
+﻿@model List<CityViewModel>
 @{
     Layout = "~/Views/Shared/_layoutLocation.cshtml";
 }
@@ -10,11 +10,13 @@
 
                 @foreach(var city in Model)
                 {
+                    var photolocation = "Image/location/" + city.CityPhoto;
+                    var cityname = city.CityName;
                     <div class="project-list-item">
-                        <a asp-action="Index" asp-controller="Home" asp-route-city="@city" class="project-link" target="_blank">
-                            <div class="proj_list" style="background-image:url(~/images/location/gurgaon.webp)">
-                                <h2>@city</h2>
-                                <p>Luxury Properties in Gurugram</p>
+                        <a asp-action="Index" asp-controller="Home" asp-route-city="@cityname" class="project-link" target="_blank">
+                            <div class="proj_list" style="background-image:url(@photolocation)">
+                                <h2>@city.CityName</h2>
+                                <p>Luxury Properties in @cityname</p>
                             </div>
                         </a>
                     </div>

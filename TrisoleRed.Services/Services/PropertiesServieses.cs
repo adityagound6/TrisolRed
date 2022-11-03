@@ -24,10 +24,14 @@ namespace TrisoleRed.Services.Services
             return listd;
         }
 
-        public List<string> GetAllCity()
+        public List<CityViewModel> GetAllCity()
         {
-            var city = _context.PropertiesDetails.Select(x => x.City).Distinct().ToList();
-            return city;
+            var citys = _context.Cities.Select(x => new CityViewModel()
+            {
+                CityName = x.CityName,
+                CityPhoto = x.CityPhoto,
+            }).ToList();
+            return citys;
         }
 
         public bool AddPropty(PropertiesDetailsModelView model)

@@ -9,7 +9,7 @@ namespace TrisoleRed.Services.Interfaces
         bool AddPropty(PropertiesDetailsModelView model);
         bool Update(PropertiesDetailsModelView model);
         PropertiesDetailsModelView GetById(int id);
-        List<string> GetAllCity();
+        List<CityViewModel> GetAllCity();
         List<PropertiesDetails> GetByCityName(string city);
     }
 }
